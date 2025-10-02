@@ -119,7 +119,7 @@ export function SearchForm({}: SearchFormProps) {
             </div>
 
             {isLoading ? (
-              <ScrollArea className="h-full max-h-[36rem] w-full rounded-md border p-4">
+              <ScrollArea className="h-full max-h-144 w-full rounded-md border p-4">
                 <div className="grid w-full gap-3">
                   <Skeleton className="h-10" />
                   <Skeleton className="h-10" />
@@ -128,7 +128,7 @@ export function SearchForm({}: SearchFormProps) {
             ) : (
               <Fragment>
                 {cities.length > 0 && (
-                  <ScrollArea className="h-full max-h-[36rem] w-full rounded-md border bg-custom-gray-600 p-4 shadow-sm">
+                  <ScrollArea className="h-full max-h-144 w-full rounded-md border bg-custom-gray-600 p-4 shadow-xs">
                     <div className="grid w-full gap-3">
                       {cities.map(
                         (
@@ -143,7 +143,7 @@ export function SearchForm({}: SearchFormProps) {
                                 href={"/weather/" + locationKey}
                                 className={buttonVariants({
                                   className:
-                                    "flex w-full items-start justify-start border-none bg-custom-gray-500 !opacity-80 hover:bg-custom-gray-500/50 hover:opacity-60",
+                                    "flex w-full items-start justify-start border-none bg-custom-gray-500 opacity-80! hover:bg-custom-gray-500/50 hover:opacity-60",
                                   variant: "outline",
                                 })}
                               >
