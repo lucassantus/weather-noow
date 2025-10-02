@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { PropsWithChildren } from "react";
+import type { PropsWithChildren } from "react";
 
 interface CardCoverLoadingProps extends PropsWithChildren {
   className: string;

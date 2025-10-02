@@ -1,4 +1,4 @@
-import { RequestOneDayReturnResponse } from "@/app/api/weather/one-day/types/return";
+import type { RequestOneDayReturnResponse } from "@/app/api/weather/one-day/types/return";
 import { CurrentClock } from "@/components/current-clock";
 import { convertNumberToIcon } from "@/utils/convertNumberToIcon";
 import { formatImagePerHour } from "@/utils/formatImagePerHour";

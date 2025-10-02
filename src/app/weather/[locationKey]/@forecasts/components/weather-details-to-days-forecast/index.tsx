@@ -1,6 +1,6 @@
 "use client";
 
-import { RequestForecastReturnResponse } from "@/app/api/weather/forecast/types/return";
+import type { RequestForecastReturnResponse } from "@/app/api/weather/forecast/types/return";
 import { convertNumberToIcon } from "@/utils/convertNumberToIcon";
 import dayjs from "dayjs";
 import { useRef, useState } from "react";
@@ -80,7 +80,6 @@ export function WeatherDetailsToDaysForecast({
             description={currentTime?.description ?? ""}
             maxTemperature={Number(tempMax?.toFixed(0))}
             minTemperature={Number(tempMin?.toFixed(0))}
-            
           />
         );
       })}

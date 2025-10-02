@@ -1,7 +1,7 @@
 import { server } from "@/lib/axios";
-import { NextRequest, NextResponse } from "next/server";
-import { RequestCurrentResponse } from "./types/current";
-import { RequestDetailsReturnResponse } from "./types/return";
+import { type NextRequest, NextResponse } from "next/server";
+import type { RequestCurrentResponse } from "./types/current";
+import type { RequestDetailsReturnResponse } from "./types/return";
 
 export async function GET(request: NextRequest) {
   const locationKey = request.nextUrl.searchParams.get("locationKey");

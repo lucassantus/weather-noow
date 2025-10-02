@@ -1,7 +1,7 @@
 import { server } from "@/lib/axios";
 import { NextResponse } from "next/server";
-import { RequestCitiesResponse } from "./types/cities";
-import { RequestCitiesReturnResponse } from "./types/return";
+import type { RequestCitiesResponse } from "./types/cities";
+import type { RequestCitiesReturnResponse } from "./types/return";
 
 // Interface para representar a estrutura do objeto de erro
 interface ErrorResponse {

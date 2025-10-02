@@ -1,5 +1,5 @@
 import { Separator } from "@/components/ui/separator";
-import { LucideIcon } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
 interface WeatherDetailsToDaysForecastDayProps {
   day: string;
@@ -17,9 +17,7 @@ export function WeatherDetailsToDaysForecastDay({
   description,
 }: WeatherDetailsToDaysForecastDayProps) {
   return (
-    <div
-      className="flex h-full w-full min-w-[150px] cursor-pointer select-none flex-col justify-evenly gap-2 rounded-lg border border-custom-gray-500 bg-transparent py-5 md:cursor-default md:select-auto md:gap-0 md:py-0"
-    >
+    <div className="flex h-full w-full min-w-[150px] cursor-pointer select-none flex-col justify-evenly gap-2 rounded-lg border border-custom-gray-500 bg-transparent py-5 md:cursor-default md:select-auto md:gap-0 md:py-0">
       <span className="text-lg font-bold capitalize text-custom-gray-200">
         {day}
       </span>

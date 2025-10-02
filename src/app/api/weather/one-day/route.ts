@@ -1,9 +1,9 @@
 import { server } from "@/lib/axios";
-import { NextRequest, NextResponse } from "next/server";
-import { RequestCityResponse } from "./types/city";
-import { RequestCurrentResponse } from "./types/current";
-import { RequestOneDayResponse } from "./types/one-day";
-import { RequestOneDayReturnResponse } from "./types/return";
+import { type NextRequest, NextResponse } from "next/server";
+import type { RequestCityResponse } from "./types/city";
+import type { RequestCurrentResponse } from "./types/current";
+import type { RequestOneDayResponse } from "./types/one-day";
+import type { RequestOneDayReturnResponse } from "./types/return";
 
 export async function GET(request: NextRequest) {
   const locationKey = request.nextUrl.searchParams.get("locationKey");

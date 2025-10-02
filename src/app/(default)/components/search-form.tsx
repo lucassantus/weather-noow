@@ -1,6 +1,6 @@
 "use client";
 
-import { RequestCitiesReturnResponse } from "@/app/api/weather/cities/types/return";
+import type { RequestCitiesReturnResponse } from "@/app/api/weather/cities/types/return";
 import { Button, buttonVariants } from "@/components/ui/button";
 import {
   Form,
@@ -12,7 +12,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Skeleton } from "@/components/ui/skeleton";
-import { SearchFormData, searchFormSchema } from "@/validation/search";
+import { type SearchFormData, searchFormSchema } from "@/validation/search";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
@@ -53,7 +53,7 @@ export function SearchForm({}: SearchFormProps) {
           return data;
         })
         .catch((error) => {
-          if (!!error.response.data.error.message)
+          if (error.response.data.error.message)
             toast.error(error.response.data.error.message);
 
           return [] as RequestCitiesReturnResponse;
@@ -78,15 +78,11 @@ export function SearchForm({}: SearchFormProps) {
                 <span className="text-custom-blue-light-100">Weather Noow</span>
               </div>
 
-              <div
-                className="text-xl text-custom-gray-200"
-              >
+              <div className="text-xl text-custom-gray-200">
                 Escolha um local para ver a previsão do tempo
               </div>
             </div>
-            <div
-              className="grid justify-center gap-2 sm:flex"
-            >
+            <div className="grid justify-center gap-2 sm:flex">
               <FormField
                 control={control}
                 name="search"

@@ -1,4 +1,4 @@
-import { RequestDetailsReturnResponse } from "@/app/api/weather/details/types/return";
+import type { RequestDetailsReturnResponse } from "@/app/api/weather/details/types/return";
 import { CardCover } from "@/components/card-cover";
 import { WeatherDetailsToDay } from "./components/weather-details-to-day";
 
@@ -26,11 +26,7 @@ export default async function Detail(props: DetailProps) {
   const data = await getData({ locationKey: params.locationKey });
 
   return (
-    <CardCover
-      title="Detalhes do clima hoje"
-      className="col-span-1 row-span-1"
-  
-    >
+    <CardCover title="Detalhes do clima hoje" className="col-span-1 row-span-1">
       <WeatherDetailsToDay data={data} />
     </CardCover>
   );

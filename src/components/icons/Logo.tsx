@@ -1,4 +1,4 @@
-import { LogoProps } from "@/types/logo";
+import type { LogoProps } from "@/types/logo";
 
 export function LogoIcon(props: LogoProps) {
   return (

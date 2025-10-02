@@ -1,4 +1,4 @@
-import { RequestForecastReturnResponse } from "@/app/api/weather/forecast/types/return";
+import type { RequestForecastReturnResponse } from "@/app/api/weather/forecast/types/return";
 import { CardCover } from "@/components/card-cover";
 import { WeatherDetailsToDaysForecast } from "./components/weather-details-to-days-forecast";
 
@@ -27,11 +27,7 @@ export default async function Forecasts(props: ForecastsProps) {
   const data = await getData({ locationKey: params.locationKey });
 
   return (
-    <CardCover
-      title="Previsão para 4 dias"
-      className="col-span-1 row-span-1"
-    
-    >
+    <CardCover title="Previsão para 4 dias" className="col-span-1 row-span-1">
       <WeatherDetailsToDaysForecast data={data} />
     </CardCover>
   );
