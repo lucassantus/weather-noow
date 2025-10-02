@@ -20,7 +20,8 @@
       "recommended": true,
       "suspicious": {
         "noUnknownAtRules": "off",
-        "noEmptyInterface": "off"
+        "noEmptyInterface": "off",
+        "noUnknownPseudoClass": "off"
       }
     },
     "domains": {

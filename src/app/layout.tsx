@@ -1,10 +1,10 @@
-import "@/styles/globals.css";
-import "@/styles/styles.css";
+import dayjs from "dayjs";
 import type { Metadata } from "next";
 import { Nunito } from "next/font/google";
 import { Providers } from "./providers";
 
-import dayjs from "dayjs";
+import "@/styles/globals.css";
+
 import "dayjs/locale/pt-br";
 
 dayjs.locale("pt-br");
