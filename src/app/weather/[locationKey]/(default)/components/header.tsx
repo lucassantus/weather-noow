@@ -1,7 +1,7 @@
 "use client";
 
 import { Framing } from "@/components/framing";
-import { Logo } from "@/components/icons/Logo";
+import { LogoIcon } from "@/components/icons/Logo";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { bounceAnimationVerticalDislocate } from "@/utils/animation/bounceAnimationVerticalDislocate";
@@ -28,7 +28,7 @@ export function Header({ className }: HeaderProps) {
           aria-label="Retornar para a página anterior"
           variant="link"
         >
-          <Logo className="h-7 w-7" />
+          <LogoIcon className="h-7 w-7" />
           Weather Noow
         </Button>
       </div>

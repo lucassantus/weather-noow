@@ -3,9 +3,9 @@ import { CardCover } from "@/components/card-cover";
 import { WeatherDetailsToDay } from "./components/weather-details-to-day";
 
 interface DetailProps {
-  params: {
+  params: Promise<{
     locationKey: string;
-  };
+  }>;
 }
 
 async function getData({ locationKey }: { locationKey: string }) {
@@ -21,7 +21,8 @@ async function getData({ locationKey }: { locationKey: string }) {
   );
 }
 
-export default async function Detail({ params }: DetailProps) {
+export default async function Detail(props: DetailProps) {
+  const params = await props.params;
   const data = await getData({ locationKey: params.locationKey });
 
   return (

@@ -3,9 +3,9 @@ import { CardCover } from "@/components/card-cover";
 import { WeatherDetailsToDaysForecast } from "./components/weather-details-to-days-forecast";
 
 interface ForecastsProps {
-  params: {
+  params: Promise<{
     locationKey: string;
-  };
+  }>;
 }
 
 async function getData({ locationKey }: { locationKey: string }) {
@@ -22,7 +22,8 @@ async function getData({ locationKey }: { locationKey: string }) {
   );
 }
 
-export default async function Forecasts({ params }: ForecastsProps) {
+export default async function Forecasts(props: ForecastsProps) {
+  const params = await props.params;
   const data = await getData({ locationKey: params.locationKey });
 
   return (

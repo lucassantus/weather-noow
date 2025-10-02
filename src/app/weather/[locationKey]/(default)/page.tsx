@@ -4,9 +4,9 @@ import { Header } from "./components/header";
 import { WeatherDetails } from "./components/weather-details";
 
 interface WeatherProps {
-  params: {
+  params: Promise<{
     locationKey: string;
-  };
+  }>;
 }
 
 async function getData({ locationKey }: { locationKey: string }) {
@@ -23,7 +23,8 @@ async function getData({ locationKey }: { locationKey: string }) {
   return response;
 }
 
-export default async function Weather({ params }: WeatherProps) {
+export default async function Weather(props: WeatherProps) {
+  const params = await props.params;
   const data = await getData({ locationKey: params.locationKey });
 
   return (

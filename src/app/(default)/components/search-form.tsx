@@ -1,7 +1,6 @@
 "use client";
 
 import { RequestCitiesReturnResponse } from "@/app/api/weather/cities/types/return";
-import { Framing } from "@/components/framing";
 import { Button, buttonVariants } from "@/components/ui/button";
 import {
   Form,
@@ -13,7 +12,6 @@ import {
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Skeleton } from "@/components/ui/skeleton";
-import { bounceAnimationHorizontalDislocate } from "@/utils/animation/bounceAnimationHorizontalDislocate";
 import { bounceAnimationVerticalDislocate } from "@/utils/animation/bounceAnimationVerticalDislocate";
 import { SearchFormData, searchFormSchema } from "@/validation/search";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -76,22 +74,19 @@ export function SearchForm({}: SearchFormProps) {
         <form onSubmit={handleSubmit(onSubmit)} className="w-full">
           <div className="grid gap-2">
             <div className="text-center">
-              <Framing
-                {...bounceAnimationVerticalDislocate({ delay: 0.6 })}
-                className="text-3xl font-semibold"
-              >
+              <div className="text-3xl font-semibold">
                 <span className="text-custom-gray-100">Boas vindas ao </span>
                 <span className="text-custom-blue-light-100">Weather Noow</span>
-              </Framing>
+              </div>
 
-              <Framing
+              <div
                 {...bounceAnimationVerticalDislocate({ delay: 0.8 })}
                 className="text-xl text-custom-gray-200"
               >
                 Escolha um local para ver a previsão do tempo
-              </Framing>
+              </div>
             </div>
-            <Framing
+            <div
               {...bounceAnimationVerticalDislocate({ delay: 1 })}
               className="grid justify-center gap-2 sm:flex"
             >
@@ -121,7 +116,7 @@ export function SearchForm({}: SearchFormProps) {
                 disabled={isLoading}
                 aria-label="Search for a city"
               />
-            </Framing>
+            </div>
 
             {isLoading ? (
               <ScrollArea className="h-full max-h-[36rem] w-full rounded-md border p-4">
@@ -140,16 +135,10 @@ export function SearchForm({}: SearchFormProps) {
                           { locationKey, cityName, stateName, countryName },
                           index,
                         ) => {
-                          const time = index * 0.1;
                           const cityDescription = `${cityName}, ${stateName}, ${countryName}`;
 
                           return (
-                            <Framing
-                              key={locationKey}
-                              {...bounceAnimationHorizontalDislocate({
-                                delay: 1.4 * time,
-                              })}
-                            >
+                            <div key={locationKey}>
                               <Link
                                 href={"/weather/" + locationKey}
                                 className={buttonVariants({
@@ -160,7 +149,7 @@ export function SearchForm({}: SearchFormProps) {
                               >
                                 {cityDescription}
                               </Link>
-                            </Framing>
+                            </div>
                           );
                         },
                       )}
