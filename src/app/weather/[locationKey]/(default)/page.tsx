@@ -30,7 +30,7 @@ export default async function Weather(props: WeatherProps) {
   return (
     <CardCover
       className="col-span-1 row-span-2 border-none! bg-transparent! p-0!"
-      animation={{ delay: 0.6 }}
+
     >
       <div className="flex h-full flex-col gap-4">
         <Header />

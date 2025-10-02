@@ -1,7 +1,6 @@
 "use client";
 
 import { RequestForecastReturnResponse } from "@/app/api/weather/forecast/types/return";
-import { TRANSITION_DURATION } from "@/constants/globals";
 import { convertNumberToIcon } from "@/utils/convertNumberToIcon";
 import dayjs from "dayjs";
 import { useRef, useState } from "react";
@@ -72,7 +71,6 @@ export function WeatherDetailsToDaysForecast({
 
         const textToDate = index === 0 ? "Amanhâ" : dayjs(date).format("ddd");
         const currentTime = timeToShow(forecast);
-        const delay = TRANSITION_DURATION * (index + 1);
 
         return (
           <WeatherDetailsToDaysForecastDay
@@ -82,9 +80,7 @@ export function WeatherDetailsToDaysForecast({
             description={currentTime?.description ?? ""}
             maxTemperature={Number(tempMax?.toFixed(0))}
             minTemperature={Number(tempMin?.toFixed(0))}
-            animation={{
-              delay,
-            }}
+            
           />
         );
       })}

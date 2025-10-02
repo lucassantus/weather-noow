@@ -30,7 +30,7 @@ export default async function Forecasts(props: ForecastsProps) {
     <CardCover
       title="Previsão para 4 dias"
       className="col-span-1 row-span-1"
-      animation={{ delay: 0.8 }}
+    
     >
       <WeatherDetailsToDaysForecast data={data} />
     </CardCover>

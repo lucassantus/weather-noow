@@ -12,7 +12,6 @@ import {
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Skeleton } from "@/components/ui/skeleton";
-import { bounceAnimationVerticalDislocate } from "@/utils/animation/bounceAnimationVerticalDislocate";
 import { SearchFormData, searchFormSchema } from "@/validation/search";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
@@ -80,14 +79,12 @@ export function SearchForm({}: SearchFormProps) {
               </div>
 
               <div
-                {...bounceAnimationVerticalDislocate({ delay: 0.8 })}
                 className="text-xl text-custom-gray-200"
               >
                 Escolha um local para ver a previsão do tempo
               </div>
             </div>
             <div
-              {...bounceAnimationVerticalDislocate({ delay: 1 })}
               className="grid justify-center gap-2 sm:flex"
             >
               <FormField

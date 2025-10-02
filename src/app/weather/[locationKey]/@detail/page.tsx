@@ -29,7 +29,7 @@ export default async function Detail(props: DetailProps) {
     <CardCover
       title="Detalhes do clima hoje"
       className="col-span-1 row-span-1"
-      animation={{ delay: 0.7 }}
+  
     >
       <WeatherDetailsToDay data={data} />
     </CardCover>

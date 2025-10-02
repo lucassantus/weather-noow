@@ -1,7 +1,4 @@
-import { Framing } from "@/components/framing";
 import { Separator } from "@/components/ui/separator";
-import { bounceAnimationVerticalDislocate } from "@/utils/animation/bounceAnimationVerticalDislocate";
-import { StructureAnimation } from "@/utils/animation/types";
 import { LucideIcon } from "lucide-react";
 
 interface WeatherDetailsToDaysForecastDayProps {
@@ -10,7 +7,6 @@ interface WeatherDetailsToDaysForecastDayProps {
   maxTemperature: number;
   minTemperature: number;
   description: string;
-  animation: StructureAnimation;
 }
 
 export function WeatherDetailsToDaysForecastDay({
@@ -19,11 +15,9 @@ export function WeatherDetailsToDaysForecastDay({
   maxTemperature,
   minTemperature,
   description,
-  animation,
 }: WeatherDetailsToDaysForecastDayProps) {
   return (
-    <Framing
-      {...bounceAnimationVerticalDislocate({ ...animation })}
+    <div
       className="flex h-full w-full min-w-[150px] cursor-pointer select-none flex-col justify-evenly gap-2 rounded-lg border border-custom-gray-500 bg-transparent py-5 md:cursor-default md:select-auto md:gap-0 md:py-0"
     >
       <span className="text-lg font-bold capitalize text-custom-gray-200">
@@ -52,6 +46,6 @@ export function WeatherDetailsToDaysForecastDay({
           </span>
         </div>
       </div>
-    </Framing>
+    </div>
   );
 }
