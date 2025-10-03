@@ -5,13 +5,9 @@ import { SearchForm } from "./_components/search-form";
 export default function Home() {
   return (
     <WeatherLayout>
-      <div className="flex justify-center">
-        <div className="flex flex-col">
-          <LogoIcon className="mt-3 flex h-16 w-full items-center justify-center sm:mt-10" />
+        <LogoIcon className="flex size-14 w-full items-center justify-center sm:mt-10" />
 
-          <SearchForm />
-        </div>
-      </div>
+        <SearchForm />
     </WeatherLayout>
   );
 }

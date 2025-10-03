@@ -68,93 +68,93 @@ export function SearchForm({}: SearchFormProps) {
   }
 
   return (
-    <div className="mt-2 w-full sm:mt-12">
-      <Form {...form}>
-        <form onSubmit={handleSubmit(onSubmit)} className="w-full">
-          <div className="space-y-2">
-            <div className="text-center">
-              <div className="text-3xl font-semibold">
-                <span className="text-custom-gray-100">Boas vindas ao </span>
-                <span className="text-custom-blue-light-100">Weather Noow</span>
-              </div>
 
-              <div className="text-xl text-custom-gray-200">
-                Escolha um local para ver a previsão do tempo
-              </div>
+    <Form {...form}>
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-2">
+        
+          <div className="text-center">
+            <div className="text-3xl font-semibold">
+              <span className="text-custom-gray-100">Boas vindas ao </span>
+              <span className="text-custom-blue-light-100">Weather Noow</span>
             </div>
 
-            <div className="grid justify-center gap-2 sm:flex">
-              <FormField
-                control={control}
-                name="search"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormControl>
-                      <Input
-                        placeholder="Pesquisar..."
-                        className="flex w-96 h-14 outline-2 outline-offset-4 rounded-md border-none bg-custom-gray-200/30 px-3 py-2 text-sm font-semibold text-muted-foreground"
-                        autoComplete="off"
-                        {...field}
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                  )}
-                />
-
-                <Button
-                  type="submit"
-                  className="h-14 bg-custom-blue-light-100 hover:bg-custom-blue-light-100/90 xs:w-[300px] sm:w-14"
-                  disabled={isPending}
-                  aria-label="Search for a city"
-                >
-                  {isPending ? <Loader2 className="animate-spin size-6" /> :  <Search className="size-6" />}
-                </Button>
-              </div>
-
-            {isPending ? (
-              <ScrollArea className="h-full max-h-144 w-full rounded-md border p-4">
-                <div className="grid w-full gap-3">
-                  <Skeleton className="h-10" />
-                  <Skeleton className="h-10" />
-                </div>
-              </ScrollArea>
-            ) : (
-              <Fragment>
-                {cities.length > 0 && (
-                  <ScrollArea className="h-full max-h-144 w-full rounded-md border bg-custom-gray-600 p-4 shadow-xs">
-                    <div className="grid w-full gap-3">
-                      {cities.map(
-                        (
-                          { locationKey, cityName, stateName, countryName },
-                          index,
-                        ) => {
-                          const cityDescription = `${cityName}, ${stateName}, ${countryName}`;
-
-                          return (
-                            <div key={locationKey}>
-                              <Link
-                                href={"/weather/" + locationKey}
-                                className={buttonVariants({
-                                  className:
-                                    "flex w-full items-start justify-start border-none bg-custom-gray-500 opacity-80! hover:bg-custom-gray-500/50 hover:opacity-60",
-                                  variant: "outline",
-                                })}
-                              >
-                                {cityDescription}
-                              </Link>
-                            </div>
-                          );
-                        },
-                      )}
-                    </div>
-                  </ScrollArea>
-                )}
-              </Fragment>
-            )}
+            <div className="text-xl text-custom-gray-200">
+              Escolha um local para ver a previsão do tempo
+            </div>
           </div>
-        </form>
-      </Form>
-    </div>
+
+          <div className="grid justify-center gap-2 sm:flex">
+            <FormField
+              control={control}
+              name="search"
+              render={({ field }) => (
+                <FormItem>
+                  <FormControl>
+                    <Input
+                      placeholder="Pesquisar..."
+                      className="flex w-96 h-14 outline-2 outline-offset-4 rounded-md border-none bg-custom-gray-200/30 px-3 py-2 text-sm font-semibold text-muted-foreground"
+                      autoComplete="off"
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+                )}
+              />
+
+              <Button
+                type="submit"
+                className="h-14 bg-custom-blue-light-100 hover:bg-custom-blue-light-100/90 xs:w-[300px] sm:w-14"
+                disabled={isPending}
+                aria-label="Search for a city"
+              >
+                {isPending ? <Loader2 className="animate-spin size-6" /> :  <Search className="size-6" />}
+              </Button>
+            </div>
+
+          {isPending ? (
+            <ScrollArea className="h-full max-h-144 w-full rounded-md border p-4">
+              <div className="grid w-full gap-3">
+                <Skeleton className="h-10" />
+                <Skeleton className="h-10" />
+              </div>
+            </ScrollArea>
+          ) : (
+            <Fragment>
+              {cities.length > 0 && (
+                <ScrollArea className="h-full max-h-144 w-full rounded-md border bg-custom-gray-600 p-4 shadow-xs">
+                  <div className="grid w-full gap-3">
+                    {cities.map(
+                      (
+                        { locationKey, cityName, stateName, countryName },
+                        index,
+                      ) => {
+                        const cityDescription = `${cityName}, ${stateName}, ${countryName}`;
+
+                        return (
+                          <div key={locationKey}>
+                            <Link
+                              href={"/weather/" + locationKey}
+                              className={buttonVariants({
+                                className:
+                                  "flex w-full items-start justify-start border-none bg-custom-gray-500 opacity-80! hover:bg-custom-gray-500/50 hover:opacity-60",
+                                variant: "outline",
+                              })}
+                            >
+                              {cityDescription}
+                            </Link>
+                          </div>
+                        );
+                      },
+                    )}
+                  </div>
+                </ScrollArea>
+              )}
+            </Fragment>
+          )}
+        
+      </form>
+    </Form>
+
   );
 }
