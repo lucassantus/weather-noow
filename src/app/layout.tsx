@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { Nunito } from "next/font/google";
 import { Providers } from "./providers";
 
-import "@/styles/globals.css";
+import "./globals.css";
 
 import "dayjs/locale/pt-br";
 
@@ -26,8 +26,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning className={nunito.variable}>
-      <body className="h-screen bg-custom-gray-800">
+    <html lang="en" className={nunito.className} suppressHydrationWarning>
+      <body className="h-screen bg-custom-gray-800" suppressHydrationWarning>
         <Providers>{children}</Providers>
       </body>
     </html>

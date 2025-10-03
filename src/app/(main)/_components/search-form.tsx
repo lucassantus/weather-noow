@@ -16,7 +16,7 @@ import { type SearchFormData, searchFormSchema } from "@/validation/search";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
-import { Search } from "lucide-react";
+import { Loader2, Search } from "lucide-react";
 import Link from "next/link";
 import { Fragment } from "react";
 import { useForm } from "react-hook-form";
@@ -36,7 +36,7 @@ export function SearchForm({}: SearchFormProps) {
 
   const {
     data: cities = [],
-    isLoading,
+    isPending,
     mutateAsync,
   } = useMutation({
     mutationKey: ["cities"],
@@ -68,10 +68,10 @@ export function SearchForm({}: SearchFormProps) {
   }
 
   return (
-    <div className="mt-7 w-full sm:mt-12">
+    <div className="mt-2 w-full sm:mt-12">
       <Form {...form}>
         <form onSubmit={handleSubmit(onSubmit)} className="w-full">
-          <div className="grid gap-2">
+          <div className="space-y-2">
             <div className="text-center">
               <div className="text-3xl font-semibold">
                 <span className="text-custom-gray-100">Boas vindas ao </span>
@@ -82,6 +82,7 @@ export function SearchForm({}: SearchFormProps) {
                 Escolha um local para ver a previsão do tempo
               </div>
             </div>
+
             <div className="grid justify-center gap-2 sm:flex">
               <FormField
                 control={control}
@@ -91,27 +92,27 @@ export function SearchForm({}: SearchFormProps) {
                     <FormControl>
                       <Input
                         placeholder="Pesquisar..."
-                        className="w-full xs:w-[300px] sm:w-[430px] md:w-[500px]"
+                        className="flex w-96 h-14 outline-2 outline-offset-4 rounded-md border-none bg-custom-gray-200/30 px-3 py-2 text-sm font-semibold text-muted-foreground"
                         autoComplete="off"
                         {...field}
                       />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
-                )}
-              />
+                  )}
+                />
 
-              <Button
-                type="submit"
-                className="h-14 bg-custom-blue-light-100 opacity-90 xs:w-[300px] sm:w-14"
-                icon={<Search />}
-                isLoading={isLoading}
-                disabled={isLoading}
-                aria-label="Search for a city"
-              />
-            </div>
+                <Button
+                  type="submit"
+                  className="h-14 bg-custom-blue-light-100 hover:bg-custom-blue-light-100/90 xs:w-[300px] sm:w-14"
+                  disabled={isPending}
+                  aria-label="Search for a city"
+                >
+                  {isPending ? <Loader2 className="animate-spin size-6" /> :  <Search className="size-6" />}
+                </Button>
+              </div>
 
-            {isLoading ? (
+            {isPending ? (
               <ScrollArea className="h-full max-h-144 w-full rounded-md border p-4">
                 <div className="grid w-full gap-3">
                   <Skeleton className="h-10" />
